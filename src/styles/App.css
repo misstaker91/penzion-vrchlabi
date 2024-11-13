@@ -1,0 +1,61 @@
+/* Add these rules at the top of your CSS */
+html, body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  text-transform: none !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: none !important;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+html {
+  height: -webkit-fill-available;
+  overscroll-behavior-y: auto; /* Enable pull-to-refresh */
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overscroll-behavior-y: auto; /* Enable pull-to-refresh */
+  -webkit-overflow-scrolling: touch;
+}
+
+.app-container {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible; /* Changed from auto to visible */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: auto; /* Enable pull-to-refresh */
+  position: relative; /* Changed from fixed */
+}
+
+.page-container {
+  width: 100%;
+  height: 65vh;
+  margin-top: 10vh;
+  padding: 20px;
+  background-color: #f1f1f1;
+  overflow-y: auto;
+}
+

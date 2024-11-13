@@ -1,0 +1,244 @@
+@media (min-width: 0px) and (max-width: 1023px) {
+
+@keyframes showImage {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/* Base styles for hero-container */
+.hero-container {
+  width: 100%;
+  height: 65vh; /* 100vh - 10vh(header) - 25vh(footer) = 65vh */
+  margin-top: 10vh; /* Start below header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow-y: auto; /* If content needs to scroll, it will scroll within this container */
+}
+
+.hero-title {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: black;
+  font-family: var(--font-heading); 
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: black;
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+  max-width: 90%;
+  text-align: center;
+}
+
+.rectangles-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centers the rectangles horizontally */
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.rectangle {
+  height: 4vh;
+  width: 75%;
+  background-color: transparent;
+  border: 1px solid black;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  position: relative;  /* Added for absolute positioning of text */
+  cursor: pointer; /* Add pointer cursor */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.rectangle-text {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: black;
+  white-space: nowrap;
+  animation: inherit;
+}
+
+/* Modified animations for odd and even rectangles */
+.rectangle:nth-child(odd) {
+  transform: translateX(-100vw);  /* Start from left edge of viewport */
+  animation-name: slideToCenter;
+}
+
+.rectangle:nth-child(even) {
+  transform: translateX(100vw);  /* Start from right edge of viewport */
+  animation-name: slideToCenter;
+}
+
+@keyframes slideToCenter {
+  0% {
+    transform: translateX(-100vw);  /* Start position for odd */
+  }
+  100% {
+    transform: translateX(0);  /* Center position */
+  }
+}
+
+@keyframes slideToCenterFromRight {
+  0% {
+    transform: translateX(100vw);  /* Start position for even */
+  }
+  100% {
+    transform: translateX(0);  /* Center position */
+  }
+}
+
+/* Delay each rectangle */
+.rectangle:nth-child(1) { animation-delay: 0s; }
+.rectangle:nth-child(2) { 
+  animation-delay: 0.2s;
+  animation-name: slideToCenterFromRight;  /* Different animation for even numbers */
+}
+.rectangle:nth-child(3) { animation-delay: 0.4s; }
+.rectangle:nth-child(4) { 
+  animation-delay: 0.6s;
+  animation-name: slideToCenterFromRight;  /* Different animation for even numbers */
+}
+
+}
+
+@media (min-width: 1024px)  {
+  @keyframes showImage {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }/* Base styles for hero-container */
+  .hero-container {
+    width: 100%;
+    height: 65vh; /* 100vh - 10vh(header) - 25vh(footer) = 65vh */
+    margin-top: 10vh; /* Start below header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* If content needs to scroll, it will scroll within this container */
+  }
+  
+  .hero-title {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: black;
+    font-family: var(--font-heading); 
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: black;
+    font-family: var(--font-body);
+    margin-bottom: 5rem;
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .rectangles-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers the rectangles horizontally */
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  
+  .rectangle {
+    height: 4vh;
+    width: 75%;
+    background-color: transparent;
+    border: 1px solid black;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;  /* Added for absolute positioning of text */
+    cursor: pointer; /* Add pointer cursor */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .rectangle-text {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: black;
+    white-space: nowrap;
+    animation: inherit;
+  }
+  
+  /* Modified animations for odd and even rectangles */
+  .rectangle:nth-child(odd) {
+    transform: translateX(-100vw);  /* Start from left edge of viewport */
+    animation-name: slideToCenter;
+  }
+  
+  .rectangle:nth-child(even) {
+    transform: translateX(100vw);  /* Start from right edge of viewport */
+    animation-name: slideToCenter;
+  }
+  
+  @keyframes slideToCenter {
+    0% {
+      transform: translateX(-100vw);  /* Start position for odd */
+    }
+    100% {
+      transform: translateX(0);  /* Center position */
+    }
+  }
+  
+  @keyframes slideToCenterFromRight {
+    0% {
+      transform: translateX(100vw);  /* Start position for even */
+    }
+    100% {
+      transform: translateX(0);  /* Center position */
+    }
+  }
+  
+  /* Delay each rectangle */
+  .rectangle:nth-child(1) { animation-delay: 0s; }
+  .rectangle:nth-child(2) { 
+    animation-delay: 0.2s;
+    animation-name: slideToCenterFromRight;  /* Different animation for even numbers */
+  }
+  .rectangle:nth-child(3) { animation-delay: 0.4s; }
+  .rectangle:nth-child(4) { 
+    animation-delay: 0.6s;
+    animation-name: slideToCenterFromRight;  /* Different animation for even numbers */
+  }
+
+}
+
+
+.rectangle:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light black background on hover */
+}
+
+.rectangle:active {
+  background-color: rgba(0, 0, 0, 0.2); /* Darker black background when clicked */
+  transform: scale(0.98); /* Slight scale down effect when clicked */
+}
