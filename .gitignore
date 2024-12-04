@@ -5,4 +5,4 @@ build/
 .env*
 .env.local
 .DS_Store
-firebase/config.json
+firebase/config.js
