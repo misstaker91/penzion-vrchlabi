@@ -18,7 +18,7 @@ function Hero() {
           <span className="rectangle-text">Svatby</span>
         </Link>
         <Link to="/obcerstveni" className="rectangle">
-          <span className="rectangle-text">Občerstvení Na mlatu</span>
+          <span className="rectangle-text">Občerstvení Na mlatu </span>
         </Link>
         <Link to="/fotogalerie" className="rectangle">
           <span className="rectangle-text">Fotogalerie</span>
