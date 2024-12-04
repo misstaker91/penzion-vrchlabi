@@ -9,13 +9,13 @@ import Svatby from './pages/Svatby';
 import Obcerstveni from './pages/Obcerstveni';
 import Fotogalerie from './pages/Fotogalerie';
 import Cenik from './pages/Cenik';
-import { PerformanceRoute } from './components/PerformanceRoute';
+
 
 function App() {
   return (
     <div className="app-container">
       <Suspense fallback={<div>Loading...</div>}>
-        <PerformanceRoute>
+       
           <Header />
           <Routes>
             <Route path="/" element={<Hero />} />
@@ -26,7 +26,7 @@ function App() {
             <Route path="/cenik" element={<Cenik />} />
           </Routes>
           <Footer />
-        </PerformanceRoute>
+        
       </Suspense>
     </div>
   );

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getPerformance } from 'firebase/performance';
+
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,11 +13,4 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-let perf = null;
-try {
-    perf = getPerformance(app);
-} catch (error) {
-    console.error('Firebase Performance initialization error:', error);
-}
-
-export { app, perf };
+export { app};

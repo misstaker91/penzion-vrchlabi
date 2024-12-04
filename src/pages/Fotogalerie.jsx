@@ -22,31 +22,14 @@ import menu from '../assets/svatby/menu.png';
 import obrad from '../assets/svatby/obrad.jpg';
 import lepsi_stan from '../assets/svatby/lepsi_stan.png';
 import noc from '../assets/svatby/noc.jpg';
-import { usePerformance } from '../hooks/usePerformance.js'
+
 
 function Fotogalerie() {
   const [index, setIndex] = useState(-1);
-  const { startTrace } = usePerformance();
-  const pageTraceRef = useRef(null);
+  
+  
 
-  useEffect(() => {
-    try {
-      pageTraceRef.current = startTrace('fotogalerie_page_load');
-    } catch (error) {
-      console.debug('Error starting page trace:', error);
-    }
-    
-    return () => {
-      if (pageTraceRef.current) {
-        try {
-          pageTraceRef.current.stop();
-          pageTraceRef.current = null;
-        } catch (error) {
-          console.debug('Error stopping page trace:', error);
-        }
-      }
-    };
-  }, [startTrace]);
+
 
   const galleryData = {
     penzion: [
