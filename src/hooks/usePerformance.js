@@ -1,5 +1,5 @@
 import { trace } from 'firebase/performance';
-import { perf } from '../firebase/config';
+import '../../firebase/config';
 
 export const usePerformance = () => {
   const startTrace = (traceName) => {
