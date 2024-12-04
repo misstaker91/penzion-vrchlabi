@@ -11,10 +11,8 @@ const firebaseConfig = {
     measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Performance Monitoring with error handling
 let perf = null;
 try {
     perf = getPerformance(app);
@@ -22,4 +20,4 @@ try {
     console.error('Firebase Performance initialization error:', error);
 }
 
-export { app, perf }; 
+export { app, perf };
