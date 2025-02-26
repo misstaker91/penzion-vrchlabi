@@ -1,34 +1,120 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Hero.css';
+import Lightbox from 'yet-another-react-lightbox';
+import "yet-another-react-lightbox/styles.css";
+
+// Import obrázků
+import uvodka from '../assets/Penzion/uvodka.jpg';
+import chata_snih from '../assets/Penzion/chata_snih1.jpg';
+import mistnost2 from '../assets/Penzion/mistnost2.jpg';
+import pokoj from '../assets/Penzion/pokoj.jpg';
+import pokoj2 from '../assets/Penzion/pokoj2.jpg';
+import spolecenka_mistnost from '../assets/Penzion/spolecenska_mistnost.jpg';
+import jidlo from '../assets/namlatu/jidlo.jpg';
+import jidlo2 from '../assets/namlatu/jidlo2.jpg';
+import namlatu_vnitrek from '../assets/namlatu/namlatu_vnitrek.jpg';
+import namlatu_vnitrek1 from '../assets/namlatu/namlatu_vnitrek1.jpg';
+import venkovni from '../assets/namlatu/venkovni.jpg';
+import stolecek from '../assets/svatby/stolecek.jpg';
+import menu from '../assets/svatby/menu.png';
+import obrad from '../assets/svatby/obrad.jpg';
+import lepsi_stan from '../assets/svatby/lepsi_stan.png';
+import noc from '../assets/svatby/noc.jpg';
+
+// Data pro fotogalerii
+const galleryData = {
+  penzion: [
+    { src: uvodka, alt: 'Penzion photo' },
+    { src: chata_snih, alt: 'Penzion winter' },
+    { src: mistnost2, alt: 'Penzion room' },
+    { src: spolecenka_mistnost, alt: 'shared free time room' },
+    { src: pokoj, alt: 'Penzion room' },
+    { src: pokoj2, alt: 'Penzion room' },
+  ],
+  obcerstveni: [
+    { src: namlatu_vnitrek, alt: 'Indoor seating' },
+    { src: namlatu_vnitrek1, alt: 'Indoor seating' },
+    { src: venkovni, alt: 'Outdoor seating' },
+    { src: jidlo, alt: 'Food' },
+    { src: jidlo2, alt: 'Food' },
+  ],
+  svatby: [
+    { src: stolecek, alt: 'Wedding table' },
+    { src: menu, alt: 'Wedding menu' },
+    { src: obrad, alt: 'Wedding ceremony' },
+    { src: lepsi_stan, alt: 'Wedding room' },
+    { src: noc, alt: 'Wedding night' },
+  ]
+};
+
+// Combine all photos into one array for the lightbox
+const allPhotos = [
+  ...galleryData.penzion,
+  ...galleryData.obcerstveni,
+  ...galleryData.svatby
+];
+
+// Calculate the global index when clicking a photo
+const getGlobalIndex = (sectionName, sectionIndex) => {
+  let globalIndex = sectionIndex;
+  if (sectionName === 'obcerstveni') {
+    globalIndex += galleryData.penzion.length;
+  } else if (sectionName === 'svatby') {
+    globalIndex += galleryData.penzion.length + galleryData.obcerstveni.length;
+  }
+  return globalIndex;
+};
 
 function Hero() {
   const [activeSection, setActiveSection] = useState('ubytovani');
+  const [index, setIndex] = useState(-1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.querySelector('.hero');
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        
+        if (heroBottom < 0) {
+          scrollToTopBtn.classList.add('visible');
+        } else {
+          scrollToTopBtn.classList.remove('visible');
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const sections = [
     {
       id: 'ubytovani',
       title: 'Ubytování',
       content: (
-        <div className="section-content">
-          <div className="page-container">
-            <h1 className="page-title">Užijte si vaši</h1>
-            <p className="page-subtitle">
+        <div className="content-section">
+          <div className="content-wrapper">
+            <h1 className="main-title">Užijte si vaši</h1>
+            <p className="main-description">
               dovolenou, školu v přírodě, lyžařský kurz, svatbu nebo firemní akci na horách. Kapacita penzionu je až 40 hostů
             </p>
             
-            <div className="accommodation-info">
-              <div className="room-section">
-                <h3>Pokoje</h3>
-                <ul>
-                  <li>2× Apartmán pro 4 osoby s vlastním sociálním zařízením</li>
-                  <li>1× Pokoj pro 2 osoby se společným sociálním zařízením</li>
-                  <li>1× Pokoj pro 3 osoby se společným sociálním zařízením</li>
-                  <li>3× Pokoj pro 4 osoby se společným sociálním zařízením</li>
-                  <li>1× Pokoj pro 6 osob se společným sociálním zařízením</li>
-                  <li>1× Pokoj pro 8 osob se společným sociálním zařízením</li>
-                </ul>
-              </div>
-            </div>
+            <h2 className="rooms-title">Pokoje</h2>
+            <ul className="rooms-list">
+              <li className="room-item">2× Apartmán pro 4 osoby s vlastním sociálním zařízením</li>
+              <li className="room-item">1× Pokoj pro 2 osoby se společným sociálním zařízením</li>
+              <li className="room-item">1× Pokoj pro 3 osoby se společným sociálním zařízením</li>
+              <li className="room-item">3× Pokoj pro 4 osoby se společným sociálním zařízením</li>
+              <li className="room-item">1× Pokoj pro 6 osob se společným sociálním zařízením</li>
+              <li className="room-item">1× Pokoj pro 8 osob se společným sociálním zařízením</li>
+            </ul>
           </div>
         </div>
       )
@@ -37,13 +123,26 @@ function Hero() {
       id: 'svatby',
       title: 'Svatby',
       content: (
-        <div className="section-content">
-          <h2>Svatby</h2>
-          <p>
-            Penzion U Königsmarků je ideálním místem pro vaši svatbu. 
-            Nabízíme prostorný sál až pro 80 osob, venkovní terasu s posezením, kompletní catering a ubytování pro svatebčany. 
-            Náš svatební koordinátor vám pomůže s plánováním a organizací vašeho velkého dne.
-          </p>
+        <div className="content-section">
+          <div className="content-wrapper">
+            <h1 className="main-title">Svatební obřad</h1>
+            <p className="main-description">
+              u sjezdovky s výhledem na Strážné. Hostina
+              v party stanu, večerní zábava dle počasí buď pod širým nebem nebo ve společenské místnosti uvnitř
+              penzionu.
+            </p>
+            
+            <h2 className="rooms-title">Nabízíme</h2>
+            <ul className="rooms-list">
+              <li className="room-item">Prostory penzionu pro svatební obřad i hostinu</li>
+              <li className="room-item">Zapůjčení party stanu a pivních setů pro svatební hostinu</li>
+              <li className="room-item">Ubytování v pokojích pro cca 40 hostů</li>
+              <li className="room-item">Pípa na točené pivo a limonádu, lednice, zapůjčení nádobí pro hostinu</li>
+              <li className="room-item">Gril, rožeň na grilování kýty</li>
+              <li className="room-item">Dekorace: světýlka, vázičky, slavobrána</li>
+              <li className="room-item">Doporučení osvědčených dodavatelů z okolí (dort, vizážistka, catering, obsluha)</li>
+            </ul>
+          </div>
         </div>
       )
     },
@@ -51,13 +150,23 @@ function Hero() {
       id: 'obcerstveni',
       title: 'Občerstvení Na mlatu',
       content: (
-        <div className="section-content">
-          <h2>Občerstvení Na mlatu</h2>
-          <p>
-            Nabízíme tradiční českou kuchyni s důrazem na kvalitní suroviny od lokálních dodavatelů. 
-            Specializujeme se na domácí krkonošské kyselo, zvěřinové speciality a domácí koláče. 
-            K jídlu si můžete vychutnat točené pivo z místního pivovaru.
-          </p>
+        <div className="content-section">
+          <div className="content-wrapper">
+            <h1 className="main-title">Občerstvení Na mlatu</h1>
+            <p className="main-description">
+              Historická stodola Na Mlatu nabízí jedinečnou atmosféru, kde si můžete vychutnat občerstvení dle aktuální nabídky. V letních měsících je k dispozici příjemné venkovní posezení.
+            </p>
+            
+            <h2 className="rooms-title">Nabízíme</h2>
+            <ul className="rooms-list">
+              <li className="room-item">Čepované pivo, víno, káva Lavazza</li>
+              <li className="room-item">Limonáda, zmrzliny</li>
+              <li className="room-item">Polévky dle denní nabídky</li>
+              <li className="room-item">Chuťovky dle aktuální nabídky</li>
+              <li className="room-item">Škvarková pomazánka, utopenec</li>
+              <li className="room-item">Koláče a dezerty</li>
+            </ul>
+          </div>
         </div>
       )
     },
@@ -65,9 +174,62 @@ function Hero() {
       id: 'fotogalerie',
       title: 'Fotogalerie',
       content: (
-        <div className="section-content">
-          <h2>Fotogalerie</h2>
-          {/* Zde budou fotky */}
+        <div className="content-section">
+          <div className="content-wrapper">
+            <h1 className="main-title">Fotogalerie</h1>
+            
+            <div className="gallery-section">
+              <h2 className="gallery-title">Penzion</h2>
+              <div className="photo-grid">
+                {galleryData.penzion.map((photo, idx) => (
+                  <div 
+                    key={idx} 
+                    className="photo-item"
+                    onClick={() => setIndex(getGlobalIndex('penzion', idx))}
+                  >
+                    <img src={photo.src} alt={photo.alt} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="gallery-section">
+              <h2 className="gallery-title">Občerstvení Na Mlatu</h2>
+              <div className="photo-grid">
+                {galleryData.obcerstveni.map((photo, idx) => (
+                  <div 
+                    key={idx} 
+                    className="photo-item"
+                    onClick={() => setIndex(getGlobalIndex('obcerstveni', idx))}
+                  >
+                    <img src={photo.src} alt={photo.alt} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="gallery-section">
+              <h2 className="gallery-title">Svatby</h2>
+              <div className="photo-grid">
+                {galleryData.svatby.map((photo, idx) => (
+                  <div 
+                    key={idx} 
+                    className="photo-item"
+                    onClick={() => setIndex(getGlobalIndex('svatby', idx))}
+                  >
+                    <img src={photo.src} alt={photo.alt} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <Lightbox
+              slides={allPhotos}
+              open={index >= 0}
+              index={index}
+              close={() => setIndex(-1)}
+            />
+          </div>
         </div>
       )
     },
@@ -75,16 +237,119 @@ function Hero() {
       id: 'cenik',
       title: 'Ceník',
       content: (
-        <div className="section-content">
-          <h2>Ceník</h2>
-          <p>
-            Dvoulůžkový pokoj: 1600 Kč/noc<br />
-            Třílůžkový pokoj: 2100 Kč/noc<br />
-            Rodinný apartmán: 2800 Kč/noc<br />
-            Přistýlka: 400 Kč/noc<br />
-            <br />
-            * Ceny jsou uvedeny za pokoj/noc včetně snídaně
-          </p>
+        <div className="content-section">
+          <div className="content-wrapper">
+            <h1 className="main-title">Ceník ubytování</h1>
+            
+            <div className="price-section">
+              <div className="price-table-container">
+                <h3 className="price-title">Zima 2024/2025 Svátky</h3>
+                <div className="table-responsive">
+                  <table className="price-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Dospělý | Kč | den</th>
+                        <th>Dítě | Kč | den</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Apartmán se soc. zař.</td>
+                        <td>620</td>
+                        <td>590</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
+                        <td>590</td>
+                        <td>560</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
+                        <td>560</td>
+                        <td>530</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="price-table-container">
+                <h3 className="price-title">Zima 2024/2025</h3>
+                <div className="table-responsive">
+                  <table className="price-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Dospělý | Kč | den</th>
+                        <th>Dítě | Kč | den</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Apartmán se soc. zař.</td>
+                        <td>600</td>
+                        <td>570</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
+                        <td>570</td>
+                        <td>540</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
+                        <td>540</td>
+                        <td>510</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="price-table-container">
+                <h3 className="price-title">Léto 2025</h3>
+                <div className="table-responsive">
+                  <table className="price-table">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Dospělý | Kč | den</th>
+                        <th>Dítě | Kč | den</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Apartmán se soc. zař.</td>
+                        <td>570</td>
+                        <td>540</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
+                        <td>540</td>
+                        <td>510</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
+                        <td>510</td>
+                        <td>480</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <div className="additional-info">
+                <p className="info-text">Hostům, kteří se u nás ubytují na dobu do 3 nocí včetně účtujeme jednorázový poplatek 100,- kč za zapůjčení ložního prádla.</p>
+                
+                <h4 className="storno-title">Storno Podmínky</h4>
+                <ul className="storno-list">
+                  <li className="storno-item">21 dní před nástupem (včetně): poplatek 50 % zálohy</li>
+                  <li className="storno-item">15 dní před nástupem (včetně): poplatek 75 % zálohy</li>
+                  <li className="storno-item">7 dní před nástupem (včetně): poplatek 100 % zálohy</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       )
     }
@@ -98,7 +363,7 @@ function Hero() {
             {window.innerWidth <= 768 ? (
               <>
                 <span className="hero__title-small">Penzion</span>
-                <span className="hero__title-large">U&nbsp;KÖNIGSMARKŮ</span>
+                <span className="hero__title-large">U&nbsp;Königsmarků</span>
               </>
             ) : (
               "Penzion U Königsmarků"
@@ -138,9 +403,24 @@ function Hero() {
         </div>
       </main>
 
-      <section className="content-section">
+      <section 
+        className="content-section" 
+        style={{ background: 'linear-gradient(#5D4037, #6D213C)' }}
+      >
         {sections.find(s => s.id === activeSection)?.content}
       </section>
+
+      <button 
+        className="scroll-to-top" 
+        id="scrollToTopBtn" 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Zpět nahoru"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="none" d="M0 0h24v24H0z"/>
+          <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"/>
+        </svg>
+      </button>
     </div>
   );
 }
