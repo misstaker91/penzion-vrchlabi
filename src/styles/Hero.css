@@ -9,24 +9,22 @@
   }
 }/* Base styles for hero-container */
 .hero-container {
-  width: 100%;
-  height: 65vh; /* 100vh - 10vh(header) - 25vh(footer) = 65vh */
-  margin-top: 10vh; /* Start below header */
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #f1f1f1;
-  padding: 10px;
-  box-sizing: border-box;
-  overflow-y: auto; /* If content needs to scroll, it will scroll within this container */
+  text-align: center;
+  color: var(--snow-white);
+  padding: 20px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
 }
 
 .hero-title {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-  color: black;
-  font-family: var(--font-heading); 
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
 
 .hero-subtitle {
@@ -39,38 +37,27 @@
 }
 
 .rectangles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* Centers the rectangles horizontally */
-  gap: 0.5rem;
-  margin-top: 2rem;
+  max-width: 1200px;
+  margin-top: 40px;
 }
 
 .rectangle {
-  height: 4vh;
-  width: 75%;
-  background-color: transparent;
-  border: 1px solid black;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  position: relative;  /* Added for absolute positioning of text */
-  cursor: pointer; /* Add pointer cursor */
-  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  background: rgba(139, 69, 19, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+  color: var(--snow-white);
+  border: 2px solid var(--snow-white);
 }
 
-.rectangle-text {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  color: black;
-  white-space: nowrap;
-  animation: inherit;
+.rectangle:hover {
+  transform: translateY(-5px);
+  background: var(--sunset-orange);
 }
 
 /* Modified animations for odd and even rectangles */
@@ -231,11 +218,6 @@
     animation-name: slideToCenterFromRight;  /* Different animation for even numbers */
   }
 
-}
-
-
-.rectangle:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Light black background on hover */
 }
 
 .rectangle:active {
