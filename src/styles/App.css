@@ -37,40 +37,52 @@ body {
   min-height: -webkit-fill-available;
   overscroll-behavior-y: auto; /* Enable pull-to-refresh */
   -webkit-overflow-scrolling: touch;
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.5;
 }
 
 :root {
-  /* Barevná paleta */
-  --wood-brown: #8B4513;
-  --mountain-green: #2E5A1C;
-  --sky-blue: #3B7CB9;
-  --snow-white: #F8F9FA;
-  --sunset-orange: #D4582B;
+  /* Barvy */
+  --color-dark: #1a1a1a;
+  --color-gold: #D4AF37;
+  --color-white: #ffffff;
   
-  /* Textury */
-  --wood-texture: url('../assets/textures/wood-texture.jpg');
-  --mountain-bg: url('../assets/images/krkonose-bg.jpg');
+  /* Fonty */
+  --font-primary: 'Playfair Display', serif;
+  --font-body: 'Source Sans Pro', sans-serif;
+  --color-gold: #D4AF37;
+  --color-dark: #1a1a1a;
+  --color-white: #ffffff;
+  /* Barevná paleta */
+  --dark-wood: #2C1810;
+  --warm-wood: #8B573D;
+  --forest-green: #2C4A3B;
+  --snow-white: #FFFFFF;
+  --mountain-stone: #A69F98;
+  
+  /* Fonty */
+  --font-heading: 'Playfair Display', serif;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-primary);
 }
 
 .app-container {
   min-height: 100vh;
-  background: var(--mountain-bg) no-repeat center center fixed;
+  background: url('/images/hero.jpg') no-repeat center center fixed;
   background-size: cover;
-  min-height: -webkit-fill-available;
-  display: flex;
-  flex-direction: column;
-  overflow-y: visible; /* Changed from auto to visible */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: auto; /* Enable pull-to-refresh */
-  position: relative; /* Changed from fixed */
 }
 
 .page-container {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  padding: 30px;
+  background: var(--mountain-fog);
+  backdrop-filter: blur(10px);
+  border-radius: 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 40px;
+  border-top: 4px solid var(--accent-gold);
   width: 100%;
   height: 65vh;
   margin-top: 10vh;

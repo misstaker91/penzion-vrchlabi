@@ -1,5 +1,13 @@
 {
   "projects": {
     "default": "penvrch2"
-  }
+  },
+  "targets": {
+    "penvrch2": {
+      "hosting": {
+        "xauri": ["xauriweb-de1aa"]
+      }
+    }
+  },
+  "etags": {}
 }
