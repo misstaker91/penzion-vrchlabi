@@ -1,0 +1,223 @@
+/* Přesunutí importu Google Fonts na začátek souboru */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Raleway:wght@300;400;500;600&display=swap');
+
+/* Zbytek CSS */
+:root {
+  --primary: #8d6b94;
+  --accent: #8d6b94;
+  --accent-hover: #7a5c81;
+  --dark: #333333;
+  --text: #4a4a4a;
+  --light-gray: #f9f9f9;
+  --font-primary: 'Libre Baskerville', serif;
+  --font-body: 'Raleway', sans-serif;
+}
+
+/* Odstranění původního importu Google Fonts, který byl na špatném místě */
+/* @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Raleway:wght@300;400;500;600&display=swap'); */ 
+
+/* Globální opravy barev pro všechny nadpisy */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary) !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+}
+
+/* Přidání specifického pravidla pro h1 v hero sekci */
+.hero h1 {
+  color: var(--primary) !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+}
+
+/* Oprava barvy pro všechny tabulky */
+table, th, td {
+  color: var(--text) !important;
+}
+
+th {
+  color: var(--primary) !important;
+}
+
+/* Oprava šířky tabulek */
+table {
+  width: 100% !important;
+}
+
+/* Oprava barvy pro všechny odkazy */
+a {
+  color: var(--accent) !important;
+}
+
+a:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Globální oprava barvy pro gallery-title */
+.gallery-title {
+  color: var(--primary) !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+}
+
+/* Odstranění šedého pozadí z content section */
+.content-section {
+  background: white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Oprava všech zlatých barev na fialové */
+.gallery-title, 
+.rooms-title, 
+.amenities-title,
+.price-title,
+.storno-title,
+.contact-title,
+.info-title,
+.additional-info h3,
+.additional-info h4 {
+  color: var(--primary) !important;
+}
+
+/* Oprava mezer mezi tabulkami v ceníku */
+.price-table {
+  margin-bottom: 1rem !important;
+}
+
+/* Extrémně agresivní odstranění mezer v ceníku pro mobilní zobrazení */
+@media (max-width: 768px) {
+  /* Odstranění všech mezer v ceníku */
+  .price-section,
+  .price-section *,
+  .price-section > *,
+  .price-section > * > *,
+  .price-section div,
+  .price-section table,
+  .price-section tr,
+  .price-section td,
+  .price-section th,
+  .price-section h3,
+  .price-section h4 {
+    margin: 0 !important;
+    padding: 0 !important;
+    border-spacing: 0 !important;
+    border-collapse: collapse !important;
+  }
+  
+  /* Minimální padding pro buňky tabulky */
+  .price-table td,
+  .price-table th {
+    padding: 0.2rem !important;
+  }
+  
+  /* Minimální mezery mezi nadpisy a tabulkami */
+  .price-section h3,
+  .price-section h4 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.2rem !important;
+    font-size: 1.1rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Odstranění mezer mezi tabulkami */
+  .price-table {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    border-spacing: 0 !important;
+  }
+  
+  /* Zmenšení výšky řádků */
+  .price-table tr {
+    line-height: 1 !important;
+    height: auto !important;
+  }
+  
+  /* Zmenšení velikosti písma v tabulkách */
+  .price-table td,
+  .price-table th {
+    font-size: 0.9rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Odstranění všech okrajů a stínů */
+  .price-section,
+  .price-section * {
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  /* Přímé cílení na mezery mezi tabulkami */
+  .price-table + .price-table,
+  .price-table ~ .price-table,
+  .price-table + *,
+  .price-table ~ * {
+    margin-top: 0 !important;
+  }
+  
+  /* Přímé cílení na mezery mezi nadpisy a tabulkami */
+  h3 + .price-table,
+  h4 + .price-table {
+    margin-top: 0.1rem !important;
+  }
+  
+  /* Přímé cílení na mezery mezi tabulkami a nadpisy */
+  .price-table + h3,
+  .price-table + h4 {
+    margin-top: 0.5rem !important;
+  }
+} 
+
+/* Speciální styly pro mobilní ceník */
+.price-section-mobile {
+  padding: 0.5rem !important;
+  margin: 0 !important;
+}
+
+.price-section-mobile h3 {
+  font-size: 1.1rem !important;
+  margin: 0.5rem 0 0.2rem 0 !important;
+  padding: 0 !important;
+  color: var(--primary) !important;
+}
+
+.price-section-mobile table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 0 0 0.3rem 0 !important;
+  padding: 0 !important;
+}
+
+.price-section-mobile th,
+.price-section-mobile td {
+  padding: 0.2rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* Odstranění všech mezer mezi elementy v mobilním ceníku */
+.price-section-mobile * + * {
+  margin-top: 0 !important;
+} 
+
+/* Globální odstranění mezer mezi všemi elementy v ceníku */
+body .content-section > div > div,
+body .content-section > div > div > div,
+body .content-section > div > div > div > div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Odstranění mezer mezi všemi nadpisy a tabulkami */
+body h3,
+body h4,
+body .price-title,
+body .price-section,
+body .price-table {
+  margin-top: 0 !important;
+  margin-bottom: 0.2rem !important;
+}
+
+/* Odstranění mezer mezi všemi instancemi PriceList */
+body .content-section > div > div + div {
+  margin-top: 0 !important;
+} 

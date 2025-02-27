@@ -66,8 +66,20 @@ function ContactForm() {
   };
 
   return (
-    <div className="contact-form-container">
-      <h2 className="contact-form-title">Kontaktujte nás</h2>
+    <div className="contact-form-container" style={{
+      background: 'transparent',
+      boxShadow: 'none',
+      border: 'none',
+      padding: window.innerWidth <= 768 ? '0.5rem' : '2rem'
+    }}>
+      {/* Odstraníme nadpis "Kontaktujte nás" */}
+      {/* <h2 className="contact-form-title" style={{
+        color: 'var(--primary)',
+        fontSize: window.innerWidth <= 768 ? '1.3rem' : '2rem',
+        marginBottom: window.innerWidth <= 768 ? '0.4rem' : '1.5rem'
+      }}>
+        Kontaktujte nás
+      </h2> */}
       
       {status.submitted && status.success && (
         <div className="form-success-message">
@@ -81,9 +93,12 @@ function ContactForm() {
         </div>
       )}
       
-      <form onSubmit={handleSubmit} className="contact-form">
+      <form 
+        onSubmit={handleSubmit}
+        className="contact-form"
+      >
         <div className="form-group">
-          <label htmlFor="name">Jméno *</label>
+          <label htmlFor="name" className="form-label">Jméno</label>
           <input
             type="text"
             id="name"
@@ -91,12 +106,12 @@ function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            disabled={status.submitting}
+            className="form-input"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="email">Email *</label>
+          <label htmlFor="email" className="form-label">Email</label>
           <input
             type="email"
             id="email"
@@ -104,41 +119,41 @@ function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            disabled={status.submitting}
+            className="form-input"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="phone">Telefon</label>
+          <label htmlFor="phone" className="form-label">Telefon</label>
           <input
             type="tel"
             id="phone"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            disabled={status.submitting}
+            className="form-input"
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="message">Zpráva *</label>
+          <label htmlFor="message" className="form-label">Zpráva</label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
-            rows="5"
-            disabled={status.submitting}
+            className="form-textarea"
           ></textarea>
         </div>
         
         <button 
           type="submit" 
-          className="submit-button"
+          className="submit-btn"
           disabled={status.submitting}
+          style={{ transform: 'none' }}
         >
-          {status.submitting ? 'Odesílání...' : 'Odeslat zprávu'}
+          {status.submitting ? 'Odesílání...' : 'Odeslat'}
         </button>
       </form>
     </div>

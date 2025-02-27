@@ -97,6 +97,38 @@ function Hero() {
     };
   }, []);
 
+  useEffect(() => {
+    if (activeSection === 'cenik' && window.innerWidth <= 768) {
+      // Najdeme všechny elementy v ceníku
+      const priceElements = document.querySelectorAll('.content-section > div > div');
+      
+      // Nastavíme nulové mezery
+      priceElements.forEach(el => {
+        el.style.margin = '0';
+        el.style.padding = '0';
+      });
+      
+      // Najdeme všechny nadpisy v ceníku
+      const headings = document.querySelectorAll('.content-section h3, .content-section h4');
+      
+      // Nastavíme minimální mezery pro nadpisy
+      headings.forEach(heading => {
+        heading.style.marginTop = '0.5rem';
+        heading.style.marginBottom = '0.2rem';
+        heading.style.fontSize = '1rem';
+      });
+      
+      // Najdeme všechny tabulky v ceníku
+      const tables = document.querySelectorAll('.content-section table');
+      
+      // Nastavíme nulové mezery pro tabulky
+      tables.forEach(table => {
+        table.style.marginTop = '0';
+        table.style.marginBottom = '0.2rem';
+      });
+    }
+  }, [activeSection]);
+
   // Handle navigation button clicks
   const handleNavClick = (section) => {
     setActiveSection(section);
@@ -387,43 +419,91 @@ function Hero() {
     <div className="page-wrapper">
       <main className="hero">
         <div className="hero__content">
-          <h1>
-            {window.innerWidth <= 768 ? (
-              <>
-                <span className="hero__title-small">Penzion</span>
-                <span className="hero__title-large">U&nbsp;Königsmarků</span>
-              </>
-            ) : (
-              "Penzion U Königsmarků"
-            )}
+          <h1 style={{ 
+            color: 'var(--primary)', 
+            fontFamily: 'var(--font-primary)',
+            fontWeight: '400'
+          }}>
+            Penzion U Königsmarků
           </h1>
           <p className="hero__tagline">V Krkonoších, poblíž lyžařského areálu Herlíkovice-Bubákov a turistických tras.</p>
           
-          <nav className="hero__nav">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                className={`nav-btn ${activeSection === section.id ? 'active' : ''}`}
-                onClick={() => handleNavClick(section.id)}
-              >
-                {section.title}
-              </button>
-            ))}
-            {window.innerWidth <= 768 && (
+          {window.innerWidth <= 768 ? (
+            <nav className="hero__nav" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', maxWidth: '300px', margin: '0 auto 1.5rem' }}>
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  className={`nav-btn ${activeSection === section.id ? 'active' : ''}`}
+                  onClick={() => handleNavClick(section.id)}
+                  style={{ width: '100%', padding: '0.6rem 0', margin: 0, textAlign: 'center' }}
+                >
+                  {section.title}
+                </button>
+              ))}
               <button 
                 className="nav-btn"
                 onClick={() => handleNavClick('kontakt')}
-                style={{ background: 'var(--warm-gold)', border: 'none', color: 'var(--cream)' }}
+                style={{ 
+                  background: 'var(--accent) !important', 
+                  border: '1px solid var(--accent) !important', 
+                  color: 'white !important',
+                  width: '100%',
+                  padding: '0.6rem 0',
+                  margin: 0,
+                  textAlign: 'center',
+                  gridColumn: '1 / span 2',
+                  fontWeight: '500',
+                  borderRadius: '4px',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
               >
                 Napište nám
               </button>
-            )}
-          </nav>
+            </nav>
+          ) : (
+            <nav className="hero__nav">
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  className={`nav-btn ${activeSection === section.id ? 'active' : ''}`}
+                  onClick={() => handleNavClick(section.id)}
+                >
+                  {section.title}
+                </button>
+              ))}
+              {window.innerWidth <= 768 && (
+                <button 
+                  className="nav-btn"
+                  onClick={() => handleNavClick('kontakt')}
+                  style={{ 
+                    background: 'var(--accent) !important', 
+                    border: '1px solid var(--accent) !important', 
+                    color: 'white !important',
+                    width: '100%',
+                    padding: '0.6rem 0',
+                    margin: 0,
+                    textAlign: 'center',
+                    gridColumn: '1 / span 2',
+                    fontWeight: '500',
+                    borderRadius: '4px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                  }}
+                >
+                  Napište nám
+                </button>
+              )}
+            </nav>
+          )}
 
           {window.innerWidth > 768 && (
             <button 
               className="reserve-btn"
               onClick={() => handleNavClick('kontakt')}
+              style={{ 
+                transform: 'none',
+                margin: '0 auto',
+                display: 'block'
+              }}
             >
               Napište nám
             </button>
@@ -433,7 +513,7 @@ function Hero() {
 
       <section 
         className="content-section" 
-        style={{ background: 'linear-gradient(#5D4037, #6D213C)' }}
+        style={{ background: 'white', border: 'none', boxShadow: 'none' }}
       >
         {activeSection === 'kontakt' 
           ? contactContent 

@@ -16,8 +16,9 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 1.5rem 2rem 3.5rem;
-  background: linear-gradient(var(--wine-dark), var(--wine-light));
+  padding: 1rem 2rem 2rem;
+  background: white !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
   text-align: center;
   position: relative;
 }
@@ -25,20 +26,22 @@ body {
 .hero__content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  color: var(--cream);
+  font-size: 3.2rem;
+  color: var(--primary) !important;
   margin-bottom: 1.5rem;
+  font-weight: 400 !important;
 }
 
 .hero__tagline {
-  font-size: 1.2rem;
-  color: var(--cream);
-  opacity: 0.9;
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: var(--dark) !important;
+  opacity: 0.8 !important;
+  margin-bottom: 2.5rem;
+  font-weight: 300 !important;
 }
 
 .hero__nav {
@@ -46,35 +49,64 @@ body {
   gap: 1.2rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .nav-btn {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  background: transparent !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: var(--dark) !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 400 !important;
+  font-family: var(--font-body) !important;
 }
 
-.nav-btn:hover,
-.nav-btn.active {
-  border-color: white;
-  background: rgba(255, 255, 255, 0.1);
+.nav-btn:hover, .nav-btn.active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+}
+
+.reserve-btn {
+  background: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: 500 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 1rem auto !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1) !important;
+  font-family: var(--font-body) !important;
+  display: block !important;
+}
+
+.reserve-btn:hover {
+  background: var(--accent-hover) !important;
+  transform: none !important;
 }
 
 /* Content section */
 .content-section {
   flex: 1;
-  background: linear-gradient(#5D4037, #6D213C);
-  padding: 2rem 2rem 4rem;
+  background: white !important;
+  padding: 1rem 2rem 3rem;
+  margin-top: -1rem;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .content-wrapper {
   max-width: 800px;
   margin: 0 auto;
-  color: var(--cream);
+  color: var(--text);
 }
 
 .main-title {
@@ -105,152 +137,73 @@ body {
 
 .room-item {
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--light-gray) !important;
   border-radius: 8px;
-  border-left: 3px solid var(--warm-gold);
-  font-size: 1.3rem !important;
+  border-left: 3px solid var(--accent) !important;
+  font-size: 1.2rem !important;
   margin-bottom: 0.8rem;
+  font-weight: 300 !important;
+  color: var(--text) !important;
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 40vh;
-    padding: 2rem 1rem 3rem;
+    min-height: 25vh; /* Ještě menší výška hero sekce */
+    padding: 1rem 1rem 1.5rem;
   }
-
-  .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero__title-small {
-    font-size: 1.8rem;
-    margin-bottom: 0.3rem;
-  }
-
-  .hero__title-large {
-    font-size: 2.5rem;
-  }
-
-  .hero__tagline {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero__nav {
-    gap: 0.8rem;
-  }
-
-  .nav-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Upravíme tlačítko Napište nám, aby bylo jako ostatní tlačítka */
-  .reserve-btn {
-    position: static;
-    transform: none;
-    display: inline-block;
-    margin-top: 1rem;
-    background: var(--warm-gold);
-    color: var(--cream);
-    border: none;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-  .reserve-btn:hover {
-    transform: none;
-    background: #d4af37;
-  }
-
-  .content-wrapper {
-    padding: 1.5rem 1rem;
-  }
-
-  /* Úprava content sekce pro mobilní zařízení */
+  
+  /* Posunutí obsahu ještě výše */
   .content-section {
-    padding: 0 0 2rem !important;
-    margin-top: -20px;
-    width: 100vw;
-    max-width: none;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    padding: 0.5rem 1rem 2rem !important;
+    margin-top: -1.5rem !important; /* Větší posunutí obsahu výše */
   }
   
-  .content-wrapper {
-    padding: 0.5rem 1rem !important;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-  }
-  
-  /* Úprava paddingu pro položky seznamu */
-  .room-item {
-    padding: 0.6rem 0.8rem;
-    margin: 0 0 0.4rem 0;
-    width: 100%;
-    box-sizing: border-box;
-    word-break: break-word;
-    hyphens: auto;
-  }
-  
-  /* Úprava seznamu */
-  .rooms-list {
-    padding: 0;
-    width: 100%;
-    margin: 0;
-  }
-  
-  /* Úprava velikosti a mezer pro mobilní zařízení */
-  .main-title {
-    font-size: 1.7rem !important;
-    margin-bottom: 0.4rem;
-    margin-top: 0;
-    word-break: break-word;
-    hyphens: auto;
-  }
-  
-  .main-description {
-    font-size: 1rem !important;
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-  }
-  
-  .rooms-title {
-    font-size: 1.4rem !important;
-    margin-bottom: 0.8rem;
-  }
-  
-  /* Úprava položek pokojů pro lepší čitelnost */
-  .rooms-list {
+  /* Úprava navigačních tlačítek, aby byla stejně dlouhá */
+  .hero__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dvě tlačítka na řádek */
     gap: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 1.5rem;
   }
   
-  .room-item {
-    font-size: 1.2rem !important;
-    padding: 0.6rem;
-    margin-bottom: 0.4rem;
-    line-height: 1.4;
+  .nav-btn {
+    width: 100% !important; /* Stejná šířka pro všechna tlačítka */
+    padding: 0.6rem 0 !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+    text-align: center !important;
   }
-
-  /* Rozšíření obsahu na celou šířku obrazovky */
-  .page-wrapper {
-    width: 100%;
-    overflow-x: hidden;
+  
+  /* Zmenšení fontu v room itemech */
+  .room-item {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 0.7rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .rooms-list {
+    gap: 0.4rem !important;
+  }
+  
+  /* Oprava barvy všech zlatých prvků na fialové */
+  .storno-title,
+  .amenities-title,
+  .rooms-title,
+  .info-text,
+  .additional-info h4,
+  .price-section h3 {
+    color: var(--primary) !important;
   }
 }
 
 .page-title {
   font-size: 2.8rem;
-  color: var(--wine-dark);
+  color: var(--primary) !important;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-weight: 400 !important;
 }
 
 .page-subtitle {
@@ -658,57 +611,49 @@ body {
 /* Mobilní verze */
 @media (max-width: 768px) {
   .hero {
-    min-height: 60vh;
-    padding: 0; /* Odstraněn padding */
-    align-items: flex-start;
+    min-height: 30vh;
+    padding: 1.5rem 1rem 2rem;
   }
-
-  .hero__content {
-    margin-top: 1.5rem; /* Menší mezera od horního okraje */
-    padding: 0;
-  }
-
+  
+  /* Explicitní nastavení barvy pro h1 v hero sekci */
   .hero h1 {
-    margin: 0; /* Reset margin pro h1 */
+    color: var(--primary) !important;
+    font-size: 2.2rem !important;
+    margin-bottom: 0.8rem !important;
+    font-family: var(--font-primary) !important;
+    font-weight: 400 !important;
   }
-
-  .hero__title-small {
-    font-size: 1.8rem;
-    color: var(--cream);
-    display: block;
-    margin-bottom: 0.3rem;
+  
+  /* Posunutí obsahu výše - jemnější */
+  .content-section {
+    padding: 1rem 1rem 2rem !important;
+    margin-top: -1rem !important; /* Jemnější posunutí obsahu výše */
   }
-
-  .hero__title-large {
-    font-size: 2.4rem;
-    color: var(--cream);
-    display: block;
-    margin-bottom: 1.5rem;
+  
+  /* Sjednocení velikosti textů */
+  .main-title,
+  .price-title,
+  .section-title,
+  .rooms-title,
+  .amenities-title,
+  .contact-title,
+  .gallery-title {
+    color: var(--primary) !important;
+    font-size: 1.7rem !important;
+    margin-bottom: 0.7rem !important;
+    font-family: var(--font-primary) !important;
+    font-weight: 400 !important;
   }
-
+  
+  /* Sjednocení velikosti běžného textu */
+  .content-text,
+  p, li, td, th,
   .hero__tagline {
-    font-size: 1.2rem;
-    color: var(--cream);
-    opacity: 0.9;
-    margin-bottom: 2rem;
-    padding: 0 1rem;
-  }
-
-  .hero__nav {
-    display: flex;
-    gap: 0.8rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0 0.5rem;
-  }
-
-  .nav-btn {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    width: calc(50% - 0.4rem);
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0.8rem !important;
+    font-family: var(--font-body) !important;
+    color: var(--text) !important;
   }
 }
 
@@ -998,27 +943,24 @@ body {
 
 /* Redesign reserve-btn */
 .reserve-btn {
-  position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--warm-gold);
-  color: var(--cream);
-  border: none;
-  padding: 1rem 3rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  font-family: var(--font-primary);
+  position: relative !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 1rem auto !important;
+  display: block !important;
+  background: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-weight: 600 !important;
   cursor: pointer;
-  border-radius: 50px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
 .reserve-btn:hover {
-  background: #d4af37;
-  transform: translateX(-50%) translateY(-2px);
+  transform: none !important;
 }
 
 :root {
@@ -1030,54 +972,56 @@ body {
 
 /* Přidáme styly pro formulář */
 .contact-form {
-  max-width: 500px;
-  margin: 0 auto;
+  background: white !important;
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem !important;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: var(--font-primary);
-  font-size: 1rem;
+.form-label {
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+  font-family: var(--font-body) !important;
 }
 
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
+.form-input, 
+.form-textarea {
+  width: 100% !important;
+  padding: 0.8rem !important;
+  border: 1px solid #e1e1e1 !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  transition: border-color 0.3s ease !important;
+  font-family: var(--font-body) !important;
+}
+
+.form-textarea {
+  min-height: 150px !important;
 }
 
 .submit-btn {
-  background: var(--warm-gold);
-  color: var(--cream);
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-family: var(--font-primary);
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  width: 100%;
+  background: var(--accent) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.8rem 1.5rem !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+  font-family: var(--font-body) !important;
+  display: inline-block !important;
 }
 
 .submit-btn:hover {
-  background: #d4af37;
-  transform: translateY(-2px);
-}
-
-/* Nová barevná kombinace pro content sekci - hnědá do vínové */
-html body .page-wrapper .content-section {
-  flex: 1;
-  background: linear-gradient(#5D4037, #6D213C) !important;
-  padding: 2rem 2rem 4rem !important; /* Zmenšení horního paddingu */
-  background-image: linear-gradient(#5D4037, #6D213C) !important;
-  background-color: #5D4037 !important;
+  background: var(--accent-hover) !important;
 }
 
 /* Úprava velikosti nadpisů a textu */
@@ -1339,12 +1283,11 @@ html body .page-wrapper .content-section {
 }
 
 .price-title {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  color: var(--cream);
-  font-family: var(--font-heading);
-  border-bottom: 2px solid var(--warm-gold);
-  padding-bottom: 0.5rem;
+  color: var(--primary) !important;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
 }
 
 .table-responsive {
@@ -1352,27 +1295,34 @@ html body .page-wrapper .content-section {
 }
 
 .price-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: var(--cream);
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 2rem !important;
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
 }
 
 .price-table th,
 .price-table td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  font-family: var(--font-body) !important;
+  color: var(--text) !important;
 }
 
 .price-table th {
-  padding: 1rem;
-  font-size: 1.3rem !important;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.2);
+  background: var(--light-gray) !important;
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+}
+
+.price-table tr:last-child td {
+  border-bottom: none !important;
 }
 
 .price-table tr:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background: var(--light-gray) !important;
 }
 
 .additional-info {
@@ -1493,12 +1443,14 @@ html body .page-wrapper .content-section {
 }
 
 .gallery-title {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--cream);
-  font-family: var(--font-heading);
-  border-bottom: 2px solid var(--warm-gold);
-  padding-bottom: 0.5rem;
+  color: var(--primary) !important;
+  font-size: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  background: none !important;
 }
 
 .photo-grid {
@@ -1553,5 +1505,387 @@ html body .page-wrapper .content-section {
   .photo-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 0.5rem;
+  }
+}
+
+/* Přidáme globální override styly na konec souboru, aby přepsaly všechny existující styly */
+
+/* Globální override styly */
+.hero, 
+.hero-container,
+.content-section,
+.section-content,
+.page-wrapper,
+.page-container,
+.app-container {
+  background: white !important;
+  border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.hero h1,
+.hero h2,
+.hero h3,
+.page-title,
+.main-title,
+.rooms-title,
+.section-title {
+  color: var(--primary) !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+}
+
+.hero__tagline,
+.main-description,
+.page-subtitle,
+.section-description {
+  color: var(--dark) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 300 !important;
+}
+
+/* Všechna tlačítka */
+.nav-btn,
+.reserve-btn,
+.submit-btn,
+.section-btn,
+button[type="submit"] {
+  font-family: var(--font-body) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Aktivní a hover stavy tlačítek */
+.nav-btn:hover, 
+.nav-btn.active,
+.reserve-btn,
+.submit-btn,
+.section-btn:hover,
+.section-btn.active,
+button[type="submit"] {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+}
+
+/* Hover stavy pro tlačítka */
+.reserve-btn:hover,
+.submit-btn:hover,
+button[type="submit"]:hover,
+.nav-btn:hover {
+  background: var(--accent-hover) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Položky pokojů */
+.room-item {
+  background: var(--light-gray) !important;
+  border-left: 3px solid var(--accent) !important;
+  font-family: var(--font-body) !important;
+  font-weight: 300 !important;
+  color: var(--text) !important;
+}
+
+/* Formulářové prvky */
+.form-group input,
+.form-group textarea,
+.form-input,
+.form-textarea {
+  border: 1px solid #e1e1e1 !important;
+  font-family: var(--font-body) !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(141, 107, 148, 0.2) !important;
+}
+
+/* Speciální override pro tlačítko "Napište nám" v mobilním zobrazení */
+@media (max-width: 768px) {
+  .nav-btn[style*="var(--warm-gold)"] {
+    background: var(--accent) !important;
+    border: none !important;
+    color: white !important;
+  }
+}
+
+/* Oprava ceníku - tabulka */
+.price-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 2rem !important;
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.price-table th,
+.price-table td {
+  padding: 1rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  font-family: var(--font-body) !important;
+  color: var(--text) !important;
+}
+
+.price-table th {
+  background: var(--light-gray) !important;
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+}
+
+.price-table tr:last-child td {
+  border-bottom: none !important;
+}
+
+.price-table tr:hover {
+  background: var(--light-gray) !important;
+}
+
+/* Oprava tlačítek - odstranění posouvání při hoveru */
+.reserve-btn:hover,
+.submit-btn:hover,
+button[type="submit"]:hover,
+.nav-btn:hover {
+  background: var(--accent-hover) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Oprava barvy okraje u ceníku */
+.price-table,
+.price-table th,
+.price-table td {
+  border-color: var(--accent) !important;
+}
+
+/* Oprava barvy textu v ceníku */
+.price-table th,
+.price-table td,
+.price-table tr {
+  color: var(--text) !important;
+}
+
+/* Oprava barvy pozadí ceníku */
+.price-table {
+  background-color: white !important;
+}
+
+/* Oprava barvy pozadí řádků ceníku */
+.price-table tr {
+  background-color: transparent !important;
+}
+
+/* Oprava barvy pozadí hlavičky ceníku */
+.price-table th {
+  background-color: var(--light-gray) !important;
+  color: var(--primary) !important;
+}
+
+/* Oprava barvy okraje ceníku */
+.price-table,
+.price-table th,
+.price-table td {
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Oprava barvy okraje u položek ceníku */
+.price-table td {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Oprava barvy okraje u poslední položky ceníku */
+.price-table tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Oprava barvy nadpisu ceníku */
+.price-title {
+  color: var(--primary) !important;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+}
+
+/* Oprava ceníku - tabulka */
+.price-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 2rem !important;
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.price-table th,
+.price-table td {
+  padding: 1rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  font-family: var(--font-body) !important;
+  color: var(--text) !important;
+}
+
+.price-table th {
+  background: var(--light-gray) !important;
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+}
+
+/* Mobilní styly */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 25vh; /* Ještě menší výška hero sekce */
+    padding: 1rem 1rem 1.5rem;
+  }
+  
+  /* Posunutí obsahu ještě výše */
+  .content-section {
+    padding: 0.5rem 1rem 2rem !important;
+    margin-top: -1.5rem !important; /* Větší posunutí obsahu výše */
+  }
+  
+  /* Úprava navigačních tlačítek, aby byla stejně dlouhá */
+  .hero__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dvě tlačítka na řádek */
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .nav-btn {
+    width: 100% !important; /* Stejná šířka pro všechna tlačítka */
+    padding: 0.6rem 0 !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+  
+  /* Zmenšení fontu v room itemech */
+  .room-item {
+    font-size: 0.9rem !important;
+    padding: 0.5rem 0.7rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .rooms-list {
+    gap: 0.4rem !important;
+  }
+  
+  /* Oprava barvy všech zlatých prvků na fialové */
+  .storno-title,
+  .amenities-title,
+  .rooms-title,
+  .info-text,
+  .additional-info h4,
+  .price-section h3 {
+    color: var(--primary) !important;
+  }
+}
+
+/* Oprava barvy gallery-title */
+.gallery-title {
+  color: var(--primary) !important;
+  font-size: 2rem !important;
+  margin-bottom: 1.5rem !important;
+  font-family: var(--font-primary) !important;
+  font-weight: 400 !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  background: none !important;
+}
+
+/* Přímé přepsání všech možných zlatých barev */
+.gallery-title,
+.gallery-title *,
+h2.gallery-title,
+.gallery-section h2,
+.gallery-section .gallery-title {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+/* Odstranění všech šedých pozadí */
+.content-section,
+.content-section *,
+[class*="content-"] {
+  background-color: white !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Mobilní styly */
+@media (max-width: 768px) {
+  /* Úprava tlačítka "Napište nám" pro mobilní zobrazení */
+  .nav-btn[style*="gridColumn"] {
+    background: var(--accent) !important;
+    color: white !important;
+    border-color: var(--accent) !important;
+    font-weight: 500 !important;
+  }
+  
+  /* Oprava barvy gallery-title pro mobilní zobrazení */
+  .gallery-title {
+    color: var(--primary) !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  
+  /* Odstranění šedého pozadí z content section */
+  .content-section {
+    background: white !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+/* Mobilní styly pro ceník */
+@media (max-width: 768px) {
+  /* Zmenšení nadpisů v ceníku */
+  .price-section h3,
+  .price-section h4,
+  .price-section .price-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.4rem !important;
+    margin-top: 0.8rem !important;
+  }
+  
+  /* Zmenšení mezer mezi tabulkami */
+  .price-table {
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Oprava tlačítka "Napište nám" v navigaci */
+  .nav-btn[style*="gridColumn"] {
+    background: var(--accent) !important;
+    color: white !important;
+    border-color: var(--accent) !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* Oprava tlačítka "Napište nám" v navigaci pro mobilní zobrazení */
+@media (max-width: 768px) {
+  /* Zajištění fialového pozadí pro tlačítko "Napište nám" */
+  .nav-btn[onclick*="kontakt"],
+  .nav-btn:last-child,
+  button[style*="gridColumn"],
+  .hero__nav button:last-child {
+    background-color: var(--accent) !important;
+    color: white !important;
+    border-color: var(--accent) !important;
+  }
+  
+  /* Přímé cílení na tlačítko podle textu */
+  .nav-btn:contains("Napište nám") {
+    background-color: var(--accent) !important;
+    color: white !important;
+    border-color: var(--accent) !important;
   }
 }
