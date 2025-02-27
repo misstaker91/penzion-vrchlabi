@@ -146,8 +146,7 @@ function Hero() {
       <div className="content-wrapper">
         <h1 className="main-title">Napište nám</h1>
         <p className="main-description">
-          Máte-li jakékoliv dotazy ohledně ubytování, svateb nebo občerstvení Na mlatu, 
-          neváhejte nás kontaktovat. Rádi vám odpovíme co nejdříve.
+          Máte-li jakékoliv dotazy, neváhejte nás kontaktovat.
         </p>
         <ContactForm />
       </div>
