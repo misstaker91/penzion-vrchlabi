@@ -5,7 +5,9 @@
   "targets": {
     "penvrch2": {
       "hosting": {
-        "xauri": ["xauriweb-de1aa"]
+        "xauri": [
+          "xauriweb-de1aa"
+        ]
       }
     }
   },

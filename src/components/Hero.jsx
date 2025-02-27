@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Hero.css';
 import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
+import { useNavigate } from 'react-router-dom';
+import ContactForm from './ContactForm';
 
 // Import obrázků
 import uvodka from '../assets/Penzion/uvodka.jpg';
@@ -68,6 +70,7 @@ const getGlobalIndex = (sectionName, sectionIndex) => {
 function Hero() {
   const [activeSection, setActiveSection] = useState('ubytovani');
   const [index, setIndex] = useState(-1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,6 +96,31 @@ function Hero() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Handle navigation button clicks
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    
+    // If it's a regular section, navigate to its route
+    if (section !== 'kontakt') {
+      navigate(`/${section}`);
+    }
+    // For kontakt, we stay on the current page and just change the active section
+  };
+
+  // Define contact form content separately
+  const contactContent = (
+    <div className="content-section">
+      <div className="content-wrapper">
+        <h1 className="main-title">Napište nám</h1>
+        <p className="main-description">
+          Máte-li jakékoliv dotazy ohledně ubytování, svateb nebo občerstvení Na mlatu, 
+          neváhejte nás kontaktovat. Rádi vám odpovíme co nejdříve.
+        </p>
+        <ContactForm />
+      </div>
+    </div>
+  );
 
   const sections = [
     {
@@ -376,7 +404,7 @@ function Hero() {
               <button
                 key={section.id}
                 className={`nav-btn ${activeSection === section.id ? 'active' : ''}`}
-                onClick={() => setActiveSection(section.id)}
+                onClick={() => handleNavClick(section.id)}
               >
                 {section.title}
               </button>
@@ -384,7 +412,7 @@ function Hero() {
             {window.innerWidth <= 768 && (
               <button 
                 className="nav-btn"
-                onClick={() => setActiveSection('kontakt')}
+                onClick={() => handleNavClick('kontakt')}
                 style={{ background: 'var(--warm-gold)', border: 'none', color: 'var(--cream)' }}
               >
                 Napište nám
@@ -395,7 +423,7 @@ function Hero() {
           {window.innerWidth > 768 && (
             <button 
               className="reserve-btn"
-              onClick={() => setActiveSection('kontakt')}
+              onClick={() => handleNavClick('kontakt')}
             >
               Napište nám
             </button>
@@ -407,7 +435,9 @@ function Hero() {
         className="content-section" 
         style={{ background: 'linear-gradient(#5D4037, #6D213C)' }}
       >
-        {sections.find(s => s.id === activeSection)?.content}
+        {activeSection === 'kontakt' 
+          ? contactContent 
+          : sections.find(s => s.id === activeSection)?.content}
       </section>
 
       <button 
