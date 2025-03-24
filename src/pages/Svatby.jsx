@@ -7,8 +7,8 @@ function Svatby() {
       <h1 className="page-title">Svatební obřad</h1>
       <p className="page-subtitle">
         u sjezdovky s výhledem na Strážné. Hostina
-        v party stanu, večerní zábava dle počasí buď pod širým nebem nebo ve společenské místnosti uvnitř
-        penzionu.
+        na mlatu, případně v párty stanu. Večerní posezení pod širým nebem, na mlatu, 
+        nebo ve chlévě.
       </p>
       
       <div className="wedding-info">
