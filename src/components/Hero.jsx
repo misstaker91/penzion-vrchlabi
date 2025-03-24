@@ -187,8 +187,8 @@ function Hero() {
             <h1 className="main-title">Svatební obřad</h1>
             <p className="main-description">
               u sjezdovky s výhledem na Strážné. Hostina
-              v party stanu, večerní zábava dle počasí buď pod širým nebem nebo ve společenské místnosti uvnitř
-              penzionu.
+              na mlatu, případně v párty stanu. Večerní posezení pod širým nebem, na mlatu, 
+              nebo ve chlévě.
             </p>
             
             <h2 className="rooms-title">Nabízíme</h2>
