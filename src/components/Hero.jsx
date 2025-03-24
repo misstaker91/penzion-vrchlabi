@@ -201,6 +201,18 @@ function Hero() {
               <li className="room-item">Dekorace: světýlka, vázičky, slavobrána</li>
               <li className="room-item">Doporučení osvědčených dodavatelů z okolí (dort, vizážistka, catering, obsluha)</li>
             </ul>
+
+            <h2 className="rooms-title">Ceník dle požadavků Svatebčanů</h2>
+            <ul className="rooms-list">
+              <li className="room-item">Příprava obřadního prostoru: 2.000 Kč</li>
+              <li className="room-item">Pronájem mlat + bar: 13.000 Kč</li>
+              <li className="room-item">Pronájem párty stanu / akce: 10.000 Kč</li>
+              <li className="room-item">Gril (rožeň): 2.000 Kč</li>
+              <li className="room-item">Gril (rožeň + 10 kg kýta): 7.000 Kč</li>
+              <li className="room-item">Ubytování osoba / noc: 600 Kč</li>
+              <li className="room-item">Ubytování při uzavření penzionu min. sazba za noc: 9.600 Kč</li>
+              <li className="room-item">Nad 16 osob každá další osoba / noc: 600 Kč</li>
+            </ul>
           </div>
         </div>
       )

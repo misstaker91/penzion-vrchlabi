@@ -24,6 +24,20 @@ function Svatby() {
             <li>Doporučení osvědčených dodavatelů z okolí (dort, vizážistka, catering, obsluha)</li>
           </ul>
         </div>
+        
+        <div className="wedding-section">
+          <h3>Ceník dle požadavků Svatebčanů</h3>
+          <div className="wedding-list">
+            <div className="wedding-item">Příprava obřadního prostoru: 2.000 Kč</div>
+            <div className="wedding-item">Pronájem mlat + bar: 13.000 Kč</div>
+            <div className="wedding-item">Pronájem párty stanu / akce: 10.000 Kč</div>
+            <div className="wedding-item">Gril (rožeň): 2.000 Kč</div>
+            <div className="wedding-item">Gril (rožeň + 10 kg kýta): 7.000 Kč</div>
+            <div className="wedding-item">Ubytování osoba / noc: 600 Kč</div>
+            <div className="wedding-item">Ubytování při uzavření penzionu min. sazba za noc: 9.600 Kč</div>
+            <div className="wedding-item">Nad 16 osob každá další osoba / noc: 600 Kč</div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1889,3 +1889,24 @@ h2.gallery-title,
     border-color: var(--accent) !important;
   }
 }
+
+/* Make price table labels match list item styling */
+.price-label {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Make wedding section price tables match list item styling - more specific selector */
+.content-wrapper h2.rooms-title + .price-table-container .price-label,
+#svatby .price-label,
+.wedding-section .price-label {
+  font-family: var(--font-secondary) !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+  color: var(--text) !important;
+  opacity: 0.9 !important;
+  text-align: left !important;
+}
