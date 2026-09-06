@@ -314,7 +314,7 @@ function Hero() {
             
             <div className="price-section">
               <div className="price-table-container">
-                <h3 className="price-title">Zima 2025/2026 Svátky</h3>
+                <h3 className="price-title">Zima 2026/2027 Svátky</h3>
                 <div className="table-responsive">
                   <table className="price-table">
                     <thead>
@@ -327,18 +327,18 @@ function Hero() {
                     <tbody>
                       <tr>
                         <td>Apartmán se soc. zař.</td>
+                        <td>660</td>
+                        <td>630</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
                         <td>630</td>
                         <td>600</td>
                       </tr>
                       <tr>
-                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
+                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
                         <td>600</td>
                         <td>570</td>
-                      </tr>
-                      <tr>
-                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
-                        <td>570</td>
-                        <td>540</td>
                       </tr>
                     </tbody>
                   </table>
@@ -346,7 +346,7 @@ function Hero() {
               </div>
 
               <div className="price-table-container">
-                <h3 className="price-title">Zima 2025/2026</h3>
+                <h3 className="price-title">Zima 2026/2027</h3>
                 <div className="table-responsive">
                   <table className="price-table">
                     <thead>
@@ -359,18 +359,18 @@ function Hero() {
                     <tbody>
                       <tr>
                         <td>Apartmán se soc. zař.</td>
+                        <td>640</td>
+                        <td>610</td>
+                      </tr>
+                      <tr>
+                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
                         <td>610</td>
                         <td>580</td>
                       </tr>
                       <tr>
-                        <td>Pokoj bez soc. zař. pro 2-4 osoby</td>
+                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
                         <td>580</td>
                         <td>550</td>
-                      </tr>
-                      <tr>
-                        <td>Pokoj bez soc. zař. pro 6-8 osob</td>
-                        <td>550</td>
-                        <td>520</td>
                       </tr>
                     </tbody>
                   </table>
